@@ -1,0 +1,132 @@
+body {
+  margin: 0;
+}
+.content {
+  padding: 8px;
+}
+.title {
+  text-align: center;
+}
+.button {
+  display: flex;
+  flex: 1;
+  height: 40px;
+  justify-content: center;
+  cursor: pointer;
+}
+.button-back {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  flex: 0;
+  padding: 3px;
+}
+.logo {
+  margin-top: 32px;
+  margin-bottom: 16px;
+}
+.actions {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  display: flex;
+  background-color: white;
+}
+.input {
+  width: 100%;
+  border: 1px solid #ddd;
+  display: inline-block;
+  text-align: center;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+.input-license {
+  width: 100%;
+  border: 1px solid #ddd;
+  margin: 0 8px;
+  padding: 8px;
+}
+.range {
+  margin-left: 8px;
+  width: 176px;
+}
+
+.icon-row {
+  display: inline-block;
+}
+
+.action-row {
+  display: flex;
+  flex: 1;
+}
+
+.separator {
+  width: 16px;
+}
+
+.row {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.row-click {
+  display: flex;
+}
+.panel {
+  padding: 16px 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.flex {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+
+.searchbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  background: white;
+}
+
+.input {
+  height: 32px;
+  padding: 0 8px;
+  margin: 0;
+  text-align: left;
+  width: 100%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 64px;
+}
+
+.item {
+  height: 100px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item:hover {
+  background: #eee;
+}
+
+.selectbar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}

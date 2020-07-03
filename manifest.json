@@ -1,0 +1,7 @@
+{
+  "name": "Handz 3D Illustration",
+  "id": "856130306757736209",
+  "api": "1.0.0",
+  "main": "dist/code.js",
+  "ui": "dist/ui.html"
+}
