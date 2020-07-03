@@ -7,4 +7,5 @@ With this plugin you can search hand gesture illustration and choose various col
 ![promo](promohandz.png)
 
 Plugin: https://www.figma.com/community/plugin/856130306757736209/Handz-3D-Illustration
+
 Library: https://www.handz.design/
