@@ -91,34 +91,50 @@ const Home = (props) => {
             return item.keywords.includes(search.toLowerCase());
           })
           .map((item, i) => {
+            const setBg = async (dropPosition = null, windowSize = null) => {
+              const image = await loadImage(
+                `${prefix}${item.number}.png`,
+                imgRef
+              );
+              const { imageData, canvas, context } = getImageData(
+                image,
+                canvasRef
+              );
+
+              const newBytes = await encodeFigma(canvas, context, imageData);
+
+              parent.postMessage(
+                {
+                  pluginMessage: {
+                    type: "set-bg",
+                    data: { newBytes, dropPosition, windowSize },
+                  },
+                },
+                "*"
+              );
+            };
             return (
               <button
                 className="item"
                 key={i}
+                draggable={true}
+                onDragEnd={(e: any) => {
+                  if (e.view.length !== 0) {
+                    // Get the position of the cursor relative to the top-left corner of the browser page
+                    const dropPosition = {
+                      clientX: e.clientX,
+                      clientY: e.clientY,
+                    };
+
+                    const windowSize = {
+                      width: window.outerWidth,
+                      height: window.outerHeight,
+                    };
+
+                    setBg(dropPosition, windowSize);
+                  }
+                }}
                 onClick={() => {
-                  const setBg = async () => {
-                    const image = await loadImage(
-                      `${prefix}${item.number}.png`,
-                      imgRef
-                    );
-                    const { imageData, canvas, context } = getImageData(
-                      image,
-                      canvasRef
-                    );
-
-                    const newBytes = await encodeFigma(
-                      canvas,
-                      context,
-                      imageData
-                    );
-
-                    parent.postMessage(
-                      {
-                        pluginMessage: { type: "set-bg", data: { newBytes } },
-                      },
-                      "*"
-                    );
-                  };
                   setBg();
                 }}
               >
