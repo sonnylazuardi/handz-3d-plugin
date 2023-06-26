@@ -30,33 +30,17 @@ figma.ui.onmessage = (msg) => {
     }
     figma.notify('Added to canvas');
 
-    const newFills = []
-    //@ts-ignore
-    for (const paint of node.fills) {
-      const newPaint = JSON.parse(JSON.stringify(paint))
-      newPaint.blendMode = "NORMAL"
-      newPaint.filters = {
-        contrast: 0,
-        exposure: 0,
-        highlights: 0,
-        saturation: 0,
-        shadows: 0,
-        temperature: 0,
-        tint: 0,
-      }
-      newPaint.imageTransform = [
-        [1, 0, 0],
-        [0, 1, 0]
-      ]
-      newPaint.opacity = 1
-      newPaint.scaleMode = "FILL"
-      newPaint.scalingFactor = 0.5
-      newPaint.visible = true
-      newPaint.type = "IMAGE"
-      delete newPaint.color
-      newPaint.imageHash = figma.createImage(newBytes).hash
-      newFills.push(newPaint)
-    }
+    const newFills = [{
+      type: "IMAGE",
+      opacity: 1,
+      scaleMode: "FILL",
+      blendMode: "NORMAL",
+      imageTransform: [
+        [1,0,0],
+        [0,1,0],
+      ],
+      imageHash: figma.createImage(newBytes).hash,
+    }]
     //@ts-ignore
     node.fills = newFills
 
